@@ -1,5 +1,5 @@
-# Use an official Python runtime as a parent image
-FROM python:3.8-slim
+# Use a more recent and compatible Python image
+FROM python:3.9-slim
 
 # Set the working directory in the container
 WORKDIR /app
@@ -9,6 +9,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     libffi-dev \
     libssl-dev \
+    libcrypt-dev \
     && rm -rf /var/lib/apt/lists/*
 
 # Install Python dependencies
@@ -26,4 +27,3 @@ EXPOSE 5000
 
 # Run the application
 CMD ["python", "app.py"]
-
