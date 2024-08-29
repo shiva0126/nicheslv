@@ -7,6 +7,8 @@ WORKDIR /app
 # Install necessary dependencies
 RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
+    libffi-dev \
+    libssl-dev \
     && rm -rf /var/lib/apt/lists/*
 
 # Install Python dependencies
@@ -24,3 +26,4 @@ EXPOSE 5000
 
 # Run the application
 CMD ["python", "app.py"]
+
